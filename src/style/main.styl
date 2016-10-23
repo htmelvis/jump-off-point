@@ -2,15 +2,134 @@
 // If you would like to override styles you must set vars first prior to loading BS
 // http://getbootstrap.com/customize/#less-variables is a list of the less-vars
 // Substitute a $ for the @ symbol in order to use in stylus
+@require 'global';
+@require './verify/verify.styl';
+@require './components/navbar.styl';
+@require './components/beer-list';
 
-$icon-font-path = '~bootstrap-styl/fonts/';
-
-@import bootstrap;
-
-$background-color = #fff;
-$default-text-color = #1b1b1b;
-
+html, body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
 body{
   background: $background-color;
   color: $default-text-color;
+  height: 100%;
+  display: block;
+  font-family: $primaryfont;
+  font-style: normal;
+}
+.trans-print-bg{
+  background-image: url(/assets/images/lightprint.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.application{
+  nav{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index:9999;
+  }
+
+  .fullscreen-page{
+    display: block;
+    height: 100vh;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #F2F2F2;
+    &.print-bg{
+      background: url(/assets/images/darkprint.png);
+      background-size: cover;
+    }
+    &.entry-image{
+      background: url(/assets/images/home-bg.png) no-repeat;
+      background-size: cover;
+      color: white;
+      nav{
+        background: transparent;
+      }
+    }
+
+  }
+  .inner-padded-page-content{
+    padding: 12em 0 2em 0;
+
+  }
+}
+
+.page{
+  width: 100%;
+
+}
+
+.application footer{
+
+  position:absolute;
+  bottom:0;
+  left:0;
+  width: 100%;
+  p{
+    color: #999;
+    text-align: center;
+    font-size: .8em;
+    margin-bottom: 0;
+  }
+  .copy-stripe{
+      background: white;
+      padding-top: .7em;
+      padding-bottom: .9em;
+      .transparent-bg{
+        background: transparent;
+      }
+      p{
+        font-size: .9em;
+      }
+  }
+  .social-stripe{
+    width: 100%;
+    background: #eee;
+    padding-top: .9em;
+    padding-bottom: .8em;
+    &.transparent-bg{
+      background: transparent;
+      a{
+        font-weight: 700;
+        color: #e0e0e0;
+      }
+    }
+  }
+}
+.centered-small-container{
+  width: 44%;
+  margin: 12em auto 0 auto;
+  height: 600px;
+  img.large-logo{
+    margin: 0 auto;
+    display: block;
+    width: 90%;
+  }
+  p{
+    font-weight: 500;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 3px;
+  }
+}
+.entryway{
+  margin-top: 20em;
+  h1{
+    font-size: 4em;
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 1em;
+  }
 }
